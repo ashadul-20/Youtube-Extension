@@ -1,0 +1,184 @@
+/* YouTube Seek Controls — popup.css */
+
+:root {
+  --ysc-bg: #0f0f0f;
+  --ysc-surface: #181818;
+  --ysc-border: #303030;
+  --ysc-text: #f1f1f1;
+  --ysc-text-sub: #aaaaaa;
+  --ysc-accent: #ff0033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 300px;
+  background: var(--ysc-bg);
+  color: var(--ysc-text);
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+}
+
+.ysc-popup {
+  padding: 16px;
+}
+
+.ysc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.ysc-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--ysc-surface);
+  color: var(--ysc-accent);
+}
+
+.ysc-header h1 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ysc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ysc-border);
+}
+
+.ysc-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ysc-row-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ysc-row-sub {
+  font-size: 11px;
+  color: var(--ysc-text-sub);
+}
+
+/* Toggle switch */
+.ysc-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.ysc-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ysc-switch-slider {
+  position: absolute;
+  inset: 0;
+  background-color: #4d4d4d;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.ysc-switch-slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  top: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+
+.ysc-switch input:checked + .ysc-switch-slider {
+  background-color: var(--ysc-accent);
+}
+
+.ysc-switch input:checked + .ysc-switch-slider::before {
+  transform: translateX(16px);
+}
+
+/* Select */
+.ysc-select {
+  background: var(--ysc-surface);
+  color: var(--ysc-text);
+  border: 1px solid var(--ysc-border);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ysc-section-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ysc-text-sub);
+  margin: 14px 0 8px;
+}
+
+.ysc-shortcuts {
+  padding-top: 2px;
+}
+
+.ysc-shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  padding: 4px 0;
+}
+
+.ysc-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background: var(--ysc-surface);
+  border: 1px solid var(--ysc-border);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.ysc-hint {
+  font-size: 11px;
+  color: var(--ysc-text-sub);
+  margin: 8px 0 0;
+}
+
+.ysc-about p {
+  font-size: 12px;
+  color: var(--ysc-text-sub);
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+
+.ysc-version {
+  font-size: 11px;
+  color: #666;
+}

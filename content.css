@@ -1,0 +1,106 @@
+/* YouTube Seek Controls — content.css
+   Styled to sit naturally inside YouTube's dark player control bar. */
+
+.ysc-controls-group {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ysc-seek-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 3px;
+  height: 100%;
+  padding: 0 6px !important;
+  width: auto !important;
+  color: #fff;
+  opacity: 0.9;
+  border-radius: 4px;
+  transition: opacity 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.ysc-seek-btn:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ysc-seek-btn:active {
+  transform: scale(0.92);
+}
+
+.ysc-seek-btn svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.ysc-seek-label {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  font-family: "Roboto", Arial, sans-serif;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* --- Seek feedback overlay (center-screen pill, YouTube's own
+   double-tap-to-seek animation follows a similar pattern) --- */
+
+#ysc-feedback-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 62; /* above video, below YT's own control bar (ytp-chrome-bottom ~ z-index 61 varies) */
+}
+
+.ysc-feedback-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.ysc-feedback-pill svg {
+  width: 18px;
+  height: 18px;
+}
+
+#ysc-feedback-overlay.ysc-feedback-show .ysc-feedback-pill {
+  animation: ysc-feedback-pop 0.7s ease forwards;
+}
+
+@keyframes ysc-feedback-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  15% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  25% {
+    transform: scale(1);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YouTube Seek Controls</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="ysc-popup">
+    <header class="ysc-header">
+      <div class="ysc-header-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V1L6.5 6.5L12 12V8C15.31 8 18 10.69 18 14C18 17.31 15.31 20 12 20C8.69 20 6 17.31 6 14H4C4 18.42 7.58 22 12 22C16.42 22 20 18.42 20 14C20 9.58 16.42 6 12 6V5Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1>YouTube Seek Controls</h1>
+    </header>
+
+    <section class="ysc-row ysc-toggle-row">
+      <div class="ysc-row-text">
+        <span class="ysc-row-title">Enabled</span>
+        <span class="ysc-row-sub">Show seek buttons on YouTube</span>
+      </div>
+      <label class="ysc-switch">
+        <input type="checkbox" id="enabledToggle" />
+        <span class="ysc-switch-slider"></span>
+      </label>
+    </section>
+
+    <section class="ysc-row">
+      <div class="ysc-row-text">
+        <span class="ysc-row-title">Seek amount</span>
+        <span class="ysc-row-sub">Applies to buttons and shortcuts</span>
+      </div>
+      <select id="seekAmountSelect" class="ysc-select">
+        <option value="5">5s</option>
+        <option value="10">10s</option>
+        <option value="15">15s</option>
+        <option value="30">30s</option>
+      </select>
+    </section>
+
+    <section class="ysc-shortcuts">
+      <span class="ysc-section-title">Keyboard shortcuts</span>
+      <div class="ysc-shortcut-item">
+        <span class="ysc-key">Z</span>
+        <span>Rewind</span>
+      </div>
+      <div class="ysc-shortcut-item">
+        <span class="ysc-key">X</span>
+        <span>Forward</span>
+      </div>
+      <p class="ysc-hint">Disabled automatically while typing in a text field.</p>
+    </section>
+
+    <section class="ysc-about">
+      <span class="ysc-section-title">About</span>
+      <p>
+        Adds visible ±seek buttons next to YouTube's play button, since the
+        desktop player doesn't have dedicated skip controls. Works on
+        normal, theater, and fullscreen playback. Settings sync across
+        your signed-in Chrome browsers.
+      </p>
+      <p class="ysc-version">v1.0.0</p>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

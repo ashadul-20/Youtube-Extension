@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Seek Controls",
+  "version": "1.0.0",
+  "description": "Adds visible ±10s rewind/forward buttons to the YouTube video player, with a configurable seek amount and keyboard shortcuts.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "YouTube Seek Controls"
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
